@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.c401</groupId>
+  <artifactId>OAProject</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <name>maven-web-demo Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+  
+   <dependencies>
+       <!-- JUnit配置 -->
+     <dependency>
+       <groupId>junit</groupId>
+       <artifactId>junit</artifactId>
+       <version>3.8.1</version>
+       <scope>test</scope>
+     </dependency>
+     <!-- 添加Servlet -->  
+     <dependency>    
+         <groupId>javax.servlet</groupId>    
+         <artifactId>javax.servlet-api</artifactId>    
+         <version>3.1-b02</version> 
+         <type>jar</type>
+         <scope>provided</scope>
+     </dependency>  
+   </dependencies>
+   <build>
+     <finalName>maven-web-demo</finalName>
+     <plugins>
+        <plugin>
+            <groupId>com.c401</groupId>
+            <artifactId>OAProject</artifactId>
+            <version>2.1</version>
+            <configuration>
+                <!-- 注意此处的url,修改成tomcat监听的端口即可 -->
+                <url>http://localhost:8080/manager/text</url>
+                <server>tomcat7</server> <!-- 此处的名字必须和setting.xml中配置的ID一致-->
+                <path>/${project.artifactId}</path> <!-- 此处的名字是项目发布的工程名-->
+                <server>tomcat7</server> 
+            </configuration>
+        </plugin>
+    </plugins>
+   </build>
+</project>
